@@ -1,0 +1,26 @@
+<div class="section-products">
+  <h2>{{ product.title }}</h2>
+
+  <div class="cards">
+    <div
+      class="item-card"
+      *ngFor="let item of product.packages; index as iDetail"
+    >
+      <div class="card">
+        <img src="{{ item.image || imagesAssets }}" class="card-img-top" />
+        <div class="card-body">
+          <h5 class="card-title">{{ item.title }}</h5>
+          <p class="card-text">
+            Some quick example text to build on the card title and make up the
+            bulk of the card's content.
+          </p>
+          <a
+            routerLink="/home/products/{{ idProduct }}/details/{{ iDetail }}"
+            class="btn btn-primary"
+            >Comprar</a
+          >
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

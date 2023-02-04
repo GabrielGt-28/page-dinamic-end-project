@@ -1,0 +1,148 @@
+<div class="section-detail">
+  <h2>{{ product.title }}</h2>
+
+  <div class="item-detail">
+    <div class="item-left">
+      <img src="{{ package.image || imagesAssets }}" alt="" />
+    </div>
+    <div class="item-right">
+      <h3>Detalle del {{ package.title }}</h3>
+      <p>{{ package.detail }}</p>
+
+      <div class="box-price">
+        <strong>S/. {{ package.price }}</strong>
+
+        <button
+          type="button"
+          class="btn btn-primary"
+          data-bs-toggle="modal"
+          data-bs-target="#exampleModal"
+        >
+          Comprar
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Button trigger modal -->
+
+  <!-- Modal -->
+  <div
+    class="modal fade"
+    id="exampleModal"
+    tabindex="-1"
+    aria-labelledby="exampleModalLabel"
+    aria-hidden="true"
+  >
+    <div class="modal-dialog">
+      <form
+        method="POST"
+        class="modal-content"
+        (ngSubmit)="onSubmit()"
+        [formGroup]="contactForm"
+      >
+        <div class="modal-header">
+          <h1 class="modal-title fs-5" id="exampleModalLabel">
+            Comprar {{ package.title }} de {{ product.title }}
+          </h1>
+          <button
+            type="button"
+            class="btn-close"
+            data-bs-dismiss="modal"
+            aria-label="Close"
+          ></button>
+        </div>
+        <div class="modal-body">
+          <div class="mb-3">
+            <label for="exampleFormControlInput1" class="form-label"
+              >Nombre</label
+            >
+            <input
+              type="text"
+              class="form-control"
+              id="exampleFormControlInput1"
+              placeholder="Nombres"
+              name="nameUser"
+              formControlName="nameUser"
+            />
+            <div
+              class="alert alert-danger mt-2"
+              *ngIf="contactForm.get('nameUser')?.touched && contactForm.get('nameUser')?.errors?.['required'] "
+            >
+              Debe tener como minimo de 3 caracteres
+            </div>
+          </div>
+          <div class="mb-3 row">
+            <div class="col-6">
+              <label for="exampleFormControlInput1" class="form-label"
+                >Tipo de documento</label
+              >
+              <select
+                class="form-select"
+                aria-label="Default select example"
+                name="typeDoc"
+                formControlName="typeDoc"
+              >
+                <option value="Dni" selected>Dni</option>
+                <option value="Carnet de pasaporte">Carnet de pasaporte</option>
+              </select>
+            </div>
+            <div class="col-6">
+              <label for="exampleFormControlInput1" class="form-label"
+                >N° Documento</label
+              >
+              <input
+                type="number"
+                class="form-control"
+                id="exampleFormControlInput1"
+                name="numDoc"
+                formControlName="numDoc"
+              />
+              <div
+                class="alert alert-danger mt-2"
+                *ngIf="contactForm.get('numDoc')?.touched && contactForm.get('numDoc')?.errors?.['required'] "
+              >
+                El campo es requerido
+              </div>
+            </div>
+          </div>
+          <div class="mb-3">
+            <label for="exampleFormControlInput1" class="form-label"
+              >Telefono</label
+            >
+            <input
+              type="number"
+              class="form-control"
+              id="exampleFormControlInput1"
+              name="numPhone"
+              formControlName="numPhone"
+            />
+            <div
+              class="alert alert-danger mt-2"
+              *ngIf="contactForm.get('numPhone')?.touched && contactForm.get('numPhone')?.errors?.['required'] "
+            >
+              El campo es requerido
+            </div>
+          </div>
+        </div>
+        <div class="modal-footer">
+          <button
+            type="button"
+            class="btn btn-secondary"
+            data-bs-dismiss="modal"
+          >
+            Cancelar
+          </button>
+          <button
+            type="submit"
+            class="btn btn-primary"
+            [disabled]="contactForm.invalid"
+            data-bs-dismiss="modal"
+          >
+            Enviar
+          </button>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>

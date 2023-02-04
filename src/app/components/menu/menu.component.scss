@@ -1,0 +1,18 @@
+.section-menu {
+  position: relative;
+  .menu {
+    background: rgb(229, 235, 50);
+    padding: 1em;
+    border-radius: 1em;
+    border: 2px solid rgb(249, 249, 11);
+
+    height: 100vh;
+    position: sticky;
+  }
+
+  @media (max-width: 900px) {
+    .menu {
+      height: auto;
+    }
+  }
+}

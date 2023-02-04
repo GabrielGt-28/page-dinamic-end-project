@@ -1,0 +1,37 @@
+.section-navbar {
+  width: 100%;
+  padding: 1em 1.5em;
+  background: rgb(65, 199, 110);
+  border-radius: 1em;
+  border: 2px solid rgb(0, 157, 5);
+
+  display: flex;
+  justify-content: space-between;
+
+  .item-top {
+    h2 {
+      text-align: center;
+      font-weight: 700;
+      color: #fff;
+      text-decoration: underline;
+    }
+  }
+  .item-bottom {
+    ul {
+      display: flex;
+      gap: 1em;
+      list-style: none;
+      li {
+        font-size: 1.5em;
+        font-weight: 700;
+        transition: 0.5s;
+        cursor: pointer;
+        &:hover {
+          color: #fff;
+          text-decoration: underline;
+          transition: 0.5s;
+        }
+      }
+    }
+  }
+}

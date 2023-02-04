@@ -1,0 +1,11 @@
+<div class="section-main">
+  <h2>Catalogo de productos</h2>
+
+  <div class="cards">
+    <div class="item-card" *ngFor="let product_ of products; index as i">
+      <a routerLink="products/{{ i }}" routerLinkActive="router-link-active"
+        ><h3>{{ product_.title }}</h3></a
+      >
+    </div>
+  </div>
+</div>

@@ -1,0 +1,45 @@
+.layout {
+  width: 95%;
+  margin: 1em auto;
+  color: #000;
+
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  grid-template-rows: auto 1fr 1fr auto;
+  gap: 15px;
+
+  .cabecera {
+    grid-column: span 3;
+    grid-row: span 1;
+  }
+  .main {
+    grid-column: span 3;
+    grid-row: span 2;
+
+    background: #ccc;
+    padding: 1em;
+    border-radius: 1em;
+    border: 2px solid #222;
+    height: 100%;
+  }
+  .menu {
+    grid-column: span 1;
+    grid-row: 1 / -1;
+  }
+  .footer {
+    grid-column: span 3;
+    grid-row: span 1;
+  }
+
+  @media (max-width: 900px) {
+    .cabecera,
+    .footer,
+    .main,
+    .menu {
+      grid-column: span 4;
+    }
+    .menu {
+      grid-row: 4/5;
+    }
+  }
+}

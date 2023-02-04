@@ -1,0 +1,32 @@
+.section-detail {
+  h2 {
+    text-align: center;
+  }
+  .item-detail {
+    display: grid;
+    grid-template-columns: 15em 1fr;
+    gap: 2em;
+    margin: 2em 0;
+    padding: 0 2em;
+
+    .item-left {
+      img {
+        width: 15em;
+      }
+    }
+    .item-right {
+      .box-price {
+        padding: 0 1em;
+        display: flex;
+        flex-direction: column;
+        justify-content: end;
+        align-items: flex-end;
+        gap: 1.5em;
+
+        button {
+          max-width: 10em;
+        }
+      }
+    }
+  }
+}
